@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SerialPortLibrary.Senior</id>
+    <version>1.0.0</version>
+    <authors>IamNevir</authors>
+    <license type="file">License</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <readme>README.md</readme>
+    <description>Hỗ trợ kết nối với cảm biến</description>
+    <copyright>CopyRight (c) Nevir 2023</copyright>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.IO.Ports" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\net6.0\SerialPortLibrary.dll" target="lib\net6.0\SerialPortLibrary.dll" />
+    <file src="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\README.md" target="\README.md" />
+    <file src="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\License" target="\License" />
+  </files>
+</package>

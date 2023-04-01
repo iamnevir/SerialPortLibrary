@@ -1,0 +1,12 @@
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\net6.0\SerialPortLibrary.deps.json
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\net6.0\SerialPortLibrary.dll
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\net6.0\SerialPortLibrary.pdb
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.dll
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\refint\SerialPortLibrary.dll
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.pdb
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\ref\SerialPortLibrary.dll
