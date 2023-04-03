@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SerialPortLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:SerialPortLibrary.DataSend">
+            <summary>
+            Lớp chứa dữ liệu về gói tin gửi đến cổng kết nối
+            </summary>
+        </member>
+        <member name="T:SerialPortLibrary.Sensor">
+            <summary>
+            Lớp thư viện chứa các phương thức xử lý với cổng kết nối
+            </summary>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.#ctor(SerialPortLibrary.SerialConfig,System.Int32,System.Int32)">
+            <summary>
+            Constructor chứa tham số truyền vào
+            </summary>
+            <param name="serialConfig">object của lớp SerialConfig</param>
+            <param name="readTimeOut">Đặt Số mili giây trước khi hết thời gian chờ nếu thao tác đọc không kết thúc</param>
+            <param name="writeTimeOut">Đặt Số mili giây trước khi hết thời gian chờ nếu thao tác ghi không kết thúc</param>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Open">
+            <summary>
+            Phương thức mở cổng kết nối mới, cho biết sẵn sàng kết nối
+            </summary>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Close">
+            <summary>
+            Đóng kết nối cổng, đặt thuộc tính IsOpen thành false và xử lý đối tượng Luồng bên trong
+            </summary>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Write">
+            <summary>
+            Ghi/Gửi dữ liệu và lệnh vào cổng kết nối mỗi 500 mili giây
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Port_ErrorReceived(System.Object,System.IO.Ports.SerialErrorReceivedEventArgs)">
+            <summary>
+            Xử lý sự kiện lỗi đường truyền kết nối
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Read">
+            <summary>
+            Đọc dữ liệu từ cổng kết nối và xử lý đưa ra kết quả tương ứng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.SaveData(System.Object,System.String)">
+            <summary>
+            Lưu dữ liệu đọc được vào file json
+            </summary>
+            <param name="result"></param>
+            <param name="ms"></param>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Load">
+            <summary>
+            Đọc dữ liệu đã ghi được trong quá trình kết nối
+            </summary>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Run">
+            <summary>
+            Khởi chạy các phương thức tổng thể trong kết nối
+            </summary>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Reset">
+            <summary>
+            Giải phóng tài nguyên và reset lại cổng kết nối
+            </summary>
+        </member>
+        <member name="T:SerialPortLibrary.SensorErrorEventArgs">
+            <summary>
+            lớp xử lý sự kiện lỗi cổng
+            </summary>
+        </member>
+        <member name="T:SerialPortLibrary.PhChangedHandlerEventArgs">
+            <summary>
+            lớp xử lý sự kiện thay đổi độ PH
+            </summary>
+        </member>
+        <member name="T:SerialPortLibrary.TempChangedHandlerEventArgs">
+            <summary>
+            lớp xử lý sự kiện thay đối nhiệt độ
+            </summary>
+        </member>
+        <member name="T:SerialPortLibrary.InitializationDescription">
+            <summary>
+            Mô tả lưu ý của thư viện
+            </summary>
+        </member>
+        <member name="T:SerialPortLibrary.SerialConfig">
+            <summary>
+            Lớp khởi tạo tham số cho cổng kết nối
+            </summary>
+        </member>
+        <member name="F:SerialPortLibrary.SerialConfig._portName">
+            <summary>
+            Tên cổng truyền vào
+            </summary>
+        </member>
+        <member name="F:SerialPortLibrary.SerialConfig._baudRate">
+            <summary>
+            Tốc độ truyền
+            </summary>
+        </member>
+    </members>
+</doc>

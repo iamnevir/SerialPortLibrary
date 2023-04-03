@@ -11,8 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SerialPortLibrary")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("IamNevir")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("CopyRight (c) Nevir 2023")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Hỗ trợ kết nối với cảm biến")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SerialPortLibrary")]

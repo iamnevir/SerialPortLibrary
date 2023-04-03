@@ -12,13 +12,27 @@
 	  <Copyright>CopyRight (c) Nevir 2023</Copyright>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageLicenseFile>License</PackageLicenseFile>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AttributeCustom.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.IO.Ports" Version="7.0.0" />
-	  <None Include="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\README.md" Pack="true" PackagePath="\"/>
-	  <None Include="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\License" Pack="true" PackagePath="\"/>
+	  <None Include="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\README.md" Pack="true" PackagePath="\" />
+	  <None Include="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\License" Pack="true" PackagePath="\" />
   </ItemGroup>
 	
 </Project>

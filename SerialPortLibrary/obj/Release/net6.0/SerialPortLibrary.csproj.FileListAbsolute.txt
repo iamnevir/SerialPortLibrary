@@ -10,3 +10,5 @@ C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.
 C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\refint\SerialPortLibrary.dll
 C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.pdb
 C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\ref\SerialPortLibrary.dll
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\net6.0\SerialPortLibrary.xml
+C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\obj\Release\net6.0\SerialPortLibrary.xml
