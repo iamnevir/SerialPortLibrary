@@ -11,16 +11,12 @@ namespace SerialPortLibrary
     /// </summary>
     public class DataSend
     {
+        public DataSend() { }
         public DataSend(byte[] Data)
         {
             _data = Data;
         }
         //private byte[] _phData = { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0A };
-        //public byte[] PhData 
-        //{ 
-        //    get { return _phData; } 
-        //    set { _phData = value; }
-        //}
         private byte[] _data = { 0x02, 0x03, 0x00, 0x01, 0x00, 0x01, 0xD5, 0xF9 };
         public byte[] Data
         {

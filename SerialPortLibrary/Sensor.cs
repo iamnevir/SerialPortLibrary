@@ -1,20 +1,11 @@
-﻿
-using System.Collections;
-using System.IO.Ports;
-using System.Text;
-using static System.Reflection.Metadata.BlobBuilder;
-
-namespace SerialPortLibrary
+﻿namespace SerialPortLibrary
 {
     /// <summary>
     /// Lớp thư viện chứa các phương thức xử lý với cổng kết nối
     /// </summary>
-    [InitializationDescription("Khi khởi tạo object cần đưa vào tham số ReadTimeOut và WriteTimeOut")]
     public class Sensor : ISerialPortLb
     {
-       
-        bool _continue = true;
-        SerialPortLb _port;
+        readonly SerialPortLb _port;
         public Sensor(ISerialPortLb iSerialPortLb ) 
         {
             _port = (SerialPortLb?)iSerialPortLb;
@@ -22,37 +13,12 @@ namespace SerialPortLibrary
         public Action<string> Message { get; set; }
         public event EventHandler<PhChangedHandlerEventArgs> PhChanged;
         public event EventHandler<TempChangedHandlerEventArgs> TempChanged;
-        //public async Task WriteAsync(byte[] buffer)
-        //{
-        //    await SerialPortLb.WriteAsync((byte[] a) =>
-        //    {
-        //        _port.Write(buffer, 0, buffer.Length);
-        //    });
-        //}
-        /// <summary>
-        /// Ghi/Gửi dữ liệu và lệnh vào cổng kết nối mỗi 500 mili giây
-        /// </summary>
-        /// <returns></returns>
-        public async Task WriteAsync(byte[] buffer)
+        public async Task<int> ReadAsync()
         {
-            Task Write = new(() =>
-            {
-                _port.Write(buffer, 0, buffer.Length);
-            }
-            );
-            Write.Start();
-            await Write;
-        }
-        /// <summary>
-        /// Đọc dữ liệu từ cổng kết nối và xử lý đưa ra kết quả tương ứng
-        /// </summary>
-        /// <returns></returns>
-        public async Task ReadAsync()
-        {
-            Task Read = new(() =>
+            return await SerialPortLb.ReadAsync(() =>
             {
                 List<string> a = new();
-                for(int i = 0; i < 7; i++)
+                for (int i = 0; i < 7; i++)
                 {
                     var m = _port.ReadChar().ToString("X");
                     a.Add(m);
@@ -71,19 +37,71 @@ namespace SerialPortLibrary
                             OnTemChanged(rs);
                         }
                     }
-                }
+                }return 0;
+            });
+        }
+        //public async Task WriteAsync(byte[] buffer) 
+        //{
+        //    await SerialPortLb.WriteAsync((byte[] buffer) =>
+        //    {
+        //        _port.Write(buffer, 0, buffer.Length);           
+        //    });
+        //}
+        /// <summary>
+        /// Ghi/Gửi dữ liệu và lệnh vào cổng kết nối 
+        /// </summary>
+        /// <returns></returns>
+        public async Task WriteAsync(byte[] buffer)
+        {
+            Task Write = new(() =>
+            {
+                _port.Write(buffer, 0, buffer.Length);
             }
             );
-            Read.Start();
-            await Read;
+            Write.Start();
+            await Write;
         }
+        /// <summary>
+        /// Đọc dữ liệu từ cổng kết nối và xử lý đưa ra kết quả tương ứng
+        /// </summary>
+        /// <returns></returns>
+        //public async Task ReadAsync()
+        //{
+        //    Task Read = new(() =>
+        //    {
+        //        List<string> a = new();
+        //        for(int i = 0; i < 7; i++)
+        //        {
+        //            var m = _port.ReadChar().ToString("X");
+        //            a.Add(m);
+        //            if (a.Count == 7)
+        //            {
+        //                int result = int.Parse(a[3] + a[4], System.Globalization.NumberStyles.HexNumber);
+        //                if (a[0] == "1")
+        //                {
+        //                    Message?.Invoke($"PH:{result}");
+        //                    OnPhChanged(result);
+        //                }
+        //                if (a[0] == "2")
+        //                {
+        //                    var rs = (float)result / 10;
+        //                    Message?.Invoke($"Nhiệt độ:{rs}");
+        //                    OnTemChanged(rs);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    );
+        //    Read.Start();
+        //    await Read;
+        //}
         /// <summary>
         /// Khởi chạy các phương thức tổng thể trong kết nối
         /// </summary>
-        public async Task Run(byte[] a)
+        public void Run(byte[] a)
         {
             _port.Open();
-            Task.WaitAll( WriteAsync(a),ReadAsync());
+            Task.WaitAll(WriteAsync(a), ReadAsync());
             _port.Close();
         }
 
@@ -131,17 +149,6 @@ namespace SerialPortLibrary
             Tem = tem;
         }
     }
-    /// <summary>
-    /// Mô tả lưu ý của thư viện
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Class)]
-    public class InitializationDescription : Attribute
-    {
-        public string Description { get; set; }
-        public InitializationDescription(string description)
-        {
-            Description = description;
-        }
-    }
+   
 
 }

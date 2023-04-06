@@ -250,9 +250,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\SerialPortLibrary\\ConsoleApp1\\ConsoleApp1.csproj",
-      "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\SerialPortLibrary\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\SerialPortLibrary\\ConsoleApp1\\Test.csproj",
+      "projectName": "Test",
+      "projectPath": "C:\\Users\\ASUS\\source\\repos\\SerialPortLibrary\\ConsoleApp1\\Test.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ASUS\\source\\repos\\SerialPortLibrary\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",

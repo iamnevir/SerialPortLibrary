@@ -252,11 +252,7 @@ public class SerialPortLb:ISerialPortLb
     /// <returns></returns>
     public static async Task WriteAsync<T>(Action<T> write)
     {
-        try
-        {
-            await WriteAsync(write);
-        }catch(TimeoutException) { }
-       
+        await WriteAsync(write);
     }
     /// <summary>
     /// Generic bất đồng bộ cho các phương thức đọc dữ liệu, truyền vào một delegate kiểu Action với một tham số truyền vào và không trả về kết quả.
@@ -264,19 +260,20 @@ public class SerialPortLb:ISerialPortLb
     /// <typeparam name="T"></typeparam>
     /// <param name="read"></param>
     /// <returns></returns>
-    public static async Task ReadAsync<T>(Action<T> read)
-    {
-        try
-        {
-            await ReadAsync(read);
-        }catch(TimeoutException) { }
-       
+    public static async Task<T> ReadAsync<T>(Func<T> read)
+    {     
+           return await Task.Run(read);      
     }
+    //public static async Task<T> ReadAsync<T>(Func<T,T> read)
+    //{
+    //    return await Task.Run(read);
+    //}
 }
-    /// <summary>
-    /// interface giúp tạo sự phụ thuộc lỏng cho các lớp thực thi phương thức từ SerialPortLb
-    /// </summary>
-    public interface ISerialPortLb {}
+    
+/// <summary>
+/// interface giúp tạo sự phụ thuộc lỏng cho các lớp thực thi phương thức từ SerialPortLb
+/// </summary>
+   public interface ISerialPortLb {}
 /// <summary>
 /// EventArgs for PinChanged
 /// </summary>

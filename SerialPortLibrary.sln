@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialPortLibrary", "SerialPortLibrary\SerialPortLibrary.csproj", "{CB67E5B8-5D1A-4485-AAFF-AB3AFB2432E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{3E97867F-5099-4DF5-BA6E-E76D9FD41EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "ConsoleApp1\Test.csproj", "{3E97867F-5099-4DF5-BA6E-E76D9FD41EDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

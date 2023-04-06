@@ -16,13 +16,7 @@
         </member>
         <member name="M:SerialPortLibrary.Sensor.WriteAsync(System.Byte[])">
             <summary>
-            Ghi/Gửi dữ liệu và lệnh vào cổng kết nối mỗi 500 mili giây
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SerialPortLibrary.Sensor.ReadAsync">
-            <summary>
-            Đọc dữ liệu từ cổng kết nối và xử lý đưa ra kết quả tương ứng
+            Ghi/Gửi dữ liệu và lệnh vào cổng kết nối 
             </summary>
             <returns></returns>
         </member>
@@ -44,11 +38,6 @@
         <member name="T:SerialPortLibrary.TempChangedHandlerEventArgs">
             <summary>
             lớp xử lý sự kiện thay đối nhiệt độ
-            </summary>
-        </member>
-        <member name="T:SerialPortLibrary.InitializationDescription">
-            <summary>
-            Mô tả lưu ý của thư viện
             </summary>
         </member>
         <member name="T:SerialPortLibrary.SerialConfig">
@@ -229,7 +218,7 @@
             <param name="write"></param>
             <returns></returns>
         </member>
-        <member name="M:SerialPortLibrary.SerialPortLb.ReadAsync``1(System.Action{``0})">
+        <member name="M:SerialPortLibrary.SerialPortLb.ReadAsync``1(System.Func{``0})">
             <summary>
             Generic bất đồng bộ cho các phương thức đọc dữ liệu, truyền vào một delegate kiểu Action với một tham số truyền vào và không trả về kết quả.
             </summary>
