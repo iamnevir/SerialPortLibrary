@@ -3,7 +3,6 @@ C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\Consol
 C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.runtimeconfig.json
 C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.dll
 C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.pdb
-C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\System.IO.Ports.dll
 C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\runtimes\linux-arm\native\libSystem.IO.Ports.Native.so
 C:\Users\ASUS\source\repos\SerialPortLibrary\ConsoleApp1\bin\Debug\net6.0\runtimes\linux-arm64\native\libSystem.IO.Ports.Native.so

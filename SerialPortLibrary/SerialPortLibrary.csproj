@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.IO.Ports" Version="7.0.0" />
 	  <None Include="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\README.md" Pack="true" PackagePath="\" />
 	  <None Include="C:\Users\ASUS\source\repos\SerialPortLibrary\SerialPortLibrary\bin\Release\License" Pack="true" PackagePath="\" />

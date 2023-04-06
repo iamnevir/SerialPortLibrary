@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "9CaPlnhe+Ml+arX4eF3ZktxusvIgixXSamTRWWXhAkN32bA9QjiUeJpNjotoDUUKsjKes5z/NEO2GC2tZKS28w==",
+  "dgSpecHash": "suvN5vzMMtWMpCUeQRZXrYq7CFX4MyNP59e7FL0HKA4lZtSDr/EhKbPINaTmG951+zRww5Ow6GXwh4+qhY+z0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\SerialPortLibrary\\SerialPortLibrary\\SerialPortLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ASUS\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\7.0.0\\runtime.linux-arm.runtime.native.system.io.ports.7.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\7.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.7.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\7.0.0\\runtime.linux-x64.runtime.native.system.io.ports.7.0.0.nupkg.sha512",
