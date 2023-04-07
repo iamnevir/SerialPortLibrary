@@ -13,12 +13,13 @@ public class SerialPortLb : ISerialPortLb
     /// <param name="serialConfig">object của lớp SerialConfig dùng để cấu hình cho SerialPortLb</param>
     public SerialPortLb(SerialConfig serialConfig)
     {
-        Port = new(serialConfig.PortName,
-                     serialConfig.BaudRate,
-                     serialConfig.Parity,
-                     serialConfig.DataBits,
-                     serialConfig.StopBits)
+        _port = new()
         {
+            PortName = serialConfig.PortName,
+            BaudRate = serialConfig.BaudRate,
+            Parity = serialConfig.Parity,
+            DataBits = serialConfig.DataBits,
+            StopBits = serialConfig.StopBits,
             ReadTimeout = serialConfig.ReadTimeOut,
             WriteTimeout = serialConfig.WriteTimeOut
         };
@@ -76,7 +77,7 @@ public class SerialPortLb : ISerialPortLb
     public int ReadChar()
     {
         CheckOpen();
-        return Port.ReadChar(); 
+        return Port.ReadChar();
     }
 
     /// <summary>
@@ -99,7 +100,7 @@ public class SerialPortLb : ISerialPortLb
     public int Read(byte[] buffer, int offset, int count)
     {
         CheckOpen();
-        return Port.Read(buffer, offset, count); 
+        return Port.Read(buffer, offset, count);
     }
 
     /// <summary>
@@ -111,7 +112,7 @@ public class SerialPortLb : ISerialPortLb
     /// <returns>Số byte đã đọc.</returns>
     public int Read(char[] buffer, int offset, int count)
     {
-        CheckOpen();      
+        CheckOpen();
         return Port.Read(buffer, offset, count);
     }
 
@@ -124,8 +125,8 @@ public class SerialPortLb : ISerialPortLb
     /// <returns>Số byte đã đọc.</returns>
     public void Write(byte[] buffer, int offset, int count)
     {
-        CheckOpen();     
-        Port.Write(buffer, offset, count); 
+        CheckOpen();
+        Port.Write(buffer, offset, count);
     }
 
     /// <summary>
@@ -137,7 +138,7 @@ public class SerialPortLb : ISerialPortLb
     /// <returns>Số byte đã đọc.</returns>
     public void Write(char[] buffer, int offset, int count)
     {
-        CheckOpen();     
+        CheckOpen();
         Port.Write(buffer, offset, count);
     }
     /// <summary>

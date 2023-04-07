@@ -23,10 +23,10 @@ namespace Test;
                string text= Console.ReadLine();
                 switch (text)
                 {
-                    case "run":
+                    case "read":
                         sensor.Run(a, b);
                         break;
-                    case "run1":
+                    case "readph":
                         sensor.Run(a);
                         break;
                 }
