@@ -10,7 +10,8 @@ namespace Test
             SerialConfig serialConfig = new() { PortName = "COM3" };
             SerialPortLb serialPortLb = new(serialConfig);
             byte[] bytes = new byte[]{ 0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0A };
-            serialPortLb.Read(bytes,0,bytes.Length);
+            var a=serialPortLb.Read(bytes,0,bytes.Length);
+            Console.WriteLine(a);
         }
         public static void ReadTest2()
         {

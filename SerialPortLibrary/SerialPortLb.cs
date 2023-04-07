@@ -158,7 +158,7 @@ public class SerialPortLb:ISerialPortLb
     /// <param name="buffer">Mảng byte để ghi đầu vào.</param>
     /// <param name="offset">Phần bù để ghi byte.</param>
     /// <param name="count">Số byte tối đa để đọc. Ít byte được đọc hơn nếu count lớn hơn số byte trong bộ đệm đầu vào.</param>
-    /// <returns>Số byte đã đọc.</returns>
+    /// <returns>Một giá trị int là số byte đã đọc được.</returns>
     /// <exception cref="ArgumentNullException">Bộ đệm được thông qua là null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">Các tham số offset hoặc count nằm ngoài vùng hợp lệ của thông buffer số được truyền. Hoặc offsethoặc countnhỏ hơn 0.</exception>
     /// <exception cref="ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
@@ -250,9 +250,9 @@ public class SerialPortLb:ISerialPortLb
     /// <typeparam name="T"></typeparam>
     /// <param name="write"></param>
     /// <returns></returns>
-    public static async Task WriteAsync<T>(Action<T> write)
+    public static async Task WriteAsync(Action write)
     {
-        await WriteAsync(write);
+        await Task.Run(write);
     }
     /// <summary>
     /// Generic bất đồng bộ cho các phương thức đọc dữ liệu, truyền vào một delegate kiểu Action với một tham số truyền vào và không trả về kết quả.
@@ -262,12 +262,8 @@ public class SerialPortLb:ISerialPortLb
     /// <returns></returns>
     public static async Task<T> ReadAsync<T>(Func<T> read)
     {     
-           return await Task.Run(read);      
-    }
-    //public static async Task<T> ReadAsync<T>(Func<T,T> read)
-    //{
-    //    return await Task.Run(read);
-    //}
+         return await Task.Run(read);      
+    }   
 }
     
 /// <summary>

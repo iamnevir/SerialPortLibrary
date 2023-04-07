@@ -14,13 +14,7 @@
             Lớp thư viện chứa các phương thức xử lý với cổng kết nối
             </summary>
         </member>
-        <member name="M:SerialPortLibrary.Sensor.WriteAsync(System.Byte[])">
-            <summary>
-            Ghi/Gửi dữ liệu và lệnh vào cổng kết nối 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SerialPortLibrary.Sensor.Run(System.Byte[])">
+        <member name="M:SerialPortLibrary.Sensor.Run(System.Byte[],System.Byte[])">
             <summary>
             Khởi chạy các phương thức tổng thể trong kết nối
             </summary>
@@ -165,7 +159,7 @@
             <param name="buffer">Mảng byte để ghi đầu vào.</param>
             <param name="offset">Phần bù để ghi byte.</param>
             <param name="count">Số byte tối đa để đọc. Ít byte được đọc hơn nếu count lớn hơn số byte trong bộ đệm đầu vào.</param>
-            <returns>Số byte đã đọc.</returns>
+            <returns>Một giá trị int là số byte đã đọc được.</returns>
             <exception cref="T:System.ArgumentNullException">Bộ đệm được thông qua là null.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Các tham số offset hoặc count nằm ngoài vùng hợp lệ của thông buffer số được truyền. Hoặc offsethoặc countnhỏ hơn 0.</exception>
             <exception cref="T:System.ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
@@ -210,7 +204,7 @@
             <exception cref="T:System.ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
             <exception cref="T:System.TimeoutException">Không có byte nào có sẵn để đọc.</exception>
         </member>
-        <member name="M:SerialPortLibrary.SerialPortLb.WriteAsync``1(System.Action{``0})">
+        <member name="M:SerialPortLibrary.SerialPortLb.WriteAsync(System.Action)">
             <summary>
             Generic bất đồng bộ cho các phương thức ghi dữ liệu, truyền vào một delegate kiểu Action với một tham số truyền vào và không trả về kết quả.
             </summary>
