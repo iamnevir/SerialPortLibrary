@@ -13,7 +13,7 @@ public class SerialPortLb : ISerialPortLb
     /// <param name="serialConfig">object của lớp SerialConfig dùng để cấu hình cho SerialPortLb</param>
     public SerialPortLb(SerialConfig serialConfig)
     {
-        _port = new()
+        Port = new()
         {
             PortName = serialConfig.PortName,
             BaudRate = serialConfig.BaudRate,
