@@ -14,9 +14,27 @@
             Lớp thư viện chứa các phương thức xử lý với cổng kết nối
             </summary>
         </member>
+        <member name="M:SerialPortLibrary.Sensor.ReadAsync(System.Byte[])">
+            <summary>
+            Đọc dữ liệu từ cổng kết nối và xử lý đưa ra kết quả tương ứng
+            </summary>
+            <returns>Trả về số byte đã đọc</returns>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.WriteAsync(System.Byte[])">
+            <summary>
+            Ghi/Gửi dữ liệu và lệnh vào cổng kết nối 
+            </summary>
+        </member>
         <member name="M:SerialPortLibrary.Sensor.Run(System.Byte[],System.Byte[])">
             <summary>
-            Khởi chạy các phương thức tổng thể trong kết nối
+            Khởi chạy các phương thức tổng thể trong kết nối, đây là một phương thức nhanh giúp rút ngắn thời gian kết nối đọc ghi cổng
+            không nên được sử dụng thường xuyên, chỉ sử dụng trong trường hợp phù hợp
+            </summary>
+        </member>
+        <member name="M:SerialPortLibrary.Sensor.Run(System.Byte[])">
+            <summary>
+            Khởi chạy các phương thức tổng thể trong kết nối, đây là một phương thức nhanh giúp rút ngắn thời gian kết nối đọc ghi cổng
+            không nên được sử dụng thường xuyên, chỉ sử dụng trong trường hợp phù hợp
             </summary>
         </member>
         <member name="T:SerialPortLibrary.SensorErrorEventArgs">
@@ -90,26 +108,6 @@
             </summary>
             <param name="serialConfig">object của lớp SerialConfig dùng để cấu hình cho SerialPortLb</param>
         </member>
-        <member name="P:SerialPortLibrary.SerialPortLb.IsOpen">
-            <summary>
-            Biến kiểm tra trạng thái mở cổng Serial
-            </summary>
-        </member>
-        <member name="E:SerialPortLibrary.SerialPortLb.PinChanged">
-            <summary>
-            Sự kiện cho biết rằng một sự kiện tín hiệu phi dữ liệu đã xảy ra trên cổng được đại diện bởi đối tượng SerialPort.
-            </summary>
-        </member>
-        <member name="E:SerialPortLibrary.SerialPortLb.DataReceived">
-            <summary>
-            Sự kiện cho biết rằng dữ liệu đã được nhận thông qua một cổng được đại diện bởi đối tượng SerialPort.
-            </summary>
-        </member>
-        <member name="E:SerialPortLibrary.SerialPortLb.ErrorReceived">
-            <summary>
-            Sự kiện cho biết đã xảy ra lỗi với một cổng được đại diện bởi đối tượng SerialPort.
-            </summary>
-        </member>
         <member name="M:SerialPortLibrary.SerialPortLb.Open">
             <summary>
             Mở một kết nối cổng nối tiếp mới, cho biết cổng đã sẵn sàng cho việc trao đổi dữ liệu.
@@ -122,12 +120,6 @@
             Hàm này sẽ được sử dụng trong các phương thực thực thi dữ liệu để đảm bảo tính kết nối trước khi thực thi.
             </summary>
             <exception cref="T:System.InvalidOperationException">Ngoại lệ được đưa ra khi lệnh gọi phương thức không hợp lệ đối với trạng thái hiện tại của đối tượng.</exception>
-        </member>
-        <member name="M:SerialPortLibrary.SerialPortLb.Dispose">
-            <summary>
-            Hàm này giải phóng tất cả tài nguyên được hay không được quản lý bởi SerialPort.
-            hủy đăng ký tất cả các sự kiện.
-            </summary>
         </member>
         <member name="M:SerialPortLibrary.SerialPortLb.Close">
             <summary>
@@ -160,10 +152,6 @@
             <param name="offset">Phần bù để ghi byte.</param>
             <param name="count">Số byte tối đa để đọc. Ít byte được đọc hơn nếu count lớn hơn số byte trong bộ đệm đầu vào.</param>
             <returns>Một giá trị int là số byte đã đọc được.</returns>
-            <exception cref="T:System.ArgumentNullException">Bộ đệm được thông qua là null.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Các tham số offset hoặc count nằm ngoài vùng hợp lệ của thông buffer số được truyền. Hoặc offsethoặc countnhỏ hơn 0.</exception>
-            <exception cref="T:System.ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
-            <exception cref="T:System.TimeoutException">Không có byte nào có sẵn để đọc.</exception>
         </member>
         <member name="M:SerialPortLibrary.SerialPortLb.Read(System.Char[],System.Int32,System.Int32)">
             <summary>
@@ -173,10 +161,6 @@
             <param name="offset">Phần bù để ghi byte.</param>
             <param name="count">Số byte tối đa để đọc. Ít byte được đọc hơn nếu count lớn hơn số byte trong bộ đệm đầu vào.</param>
             <returns>Số byte đã đọc.</returns>
-            <exception cref="T:System.ArgumentNullException">Bộ đệm được thông qua là null.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Các tham số offset hoặc count nằm ngoài vùng hợp lệ của thông buffer số được truyền. Hoặc offsethoặc countnhỏ hơn 0.</exception>
-            <exception cref="T:System.ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
-            <exception cref="T:System.TimeoutException">Không có byte nào có sẵn để đọc.</exception>
         </member>
         <member name="M:SerialPortLibrary.SerialPortLb.Write(System.Byte[],System.Int32,System.Int32)">
             <summary>
@@ -186,10 +170,6 @@
             <param name="offset">Phần bù để ghi byte.</param>
             <param name="count">Số byte tối đa để đọc. Ít byte được đọc hơn nếu count lớn hơn số byte trong bộ đệm đầu vào.</param>
             <returns>Số byte đã đọc.</returns>
-            <exception cref="T:System.ArgumentNullException">Bộ đệm được thông qua là null.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Các tham số offset hoặc count nằm ngoài vùng hợp lệ của thông buffer số được truyền. Hoặc offsethoặc countnhỏ hơn 0.</exception>
-            <exception cref="T:System.ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
-            <exception cref="T:System.TimeoutException">Không có byte nào có sẵn để đọc.</exception>
         </member>
         <member name="M:SerialPortLibrary.SerialPortLb.Write(System.Char[],System.Int32,System.Int32)">
             <summary>
@@ -199,10 +179,6 @@
             <param name="offset">Phần bù để ghi byte.</param>
             <param name="count">Số byte tối đa để đọc. Ít byte được đọc hơn nếu count lớn hơn số byte trong bộ đệm đầu vào.</param>
             <returns>Số byte đã đọc.</returns>
-            <exception cref="T:System.ArgumentNullException">Bộ đệm được thông qua là null.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Các tham số offset hoặc count nằm ngoài vùng hợp lệ của thông buffer số được truyền. Hoặc offsethoặc countnhỏ hơn 0.</exception>
-            <exception cref="T:System.ArgumentException">offset cộng count lớn hơn độ dài của buffer.</exception>
-            <exception cref="T:System.TimeoutException">Không có byte nào có sẵn để đọc.</exception>
         </member>
         <member name="M:SerialPortLibrary.SerialPortLb.WriteAsync(System.Action)">
             <summary>
@@ -223,54 +199,6 @@
         <member name="T:SerialPortLibrary.ISerialPortLb">
             <summary>
             interface giúp tạo sự phụ thuộc lỏng cho các lớp thực thi phương thức từ SerialPortLb
-            </summary>
-        </member>
-        <member name="T:SerialPortLibrary.SerialPinChangedEventArgs">
-            <summary>
-            EventArgs for PinChanged
-            </summary>
-        </member>
-        <member name="M:SerialPortLibrary.SerialPinChangedEventArgs.#ctor(System.IO.Ports.SerialPinChange)">
-            <summary>
-            Hàm khởi tạo
-            </summary>
-            <param name="eventType"></param>
-        </member>
-        <member name="P:SerialPortLibrary.SerialPinChangedEventArgs.EventType">
-            <summary>
-            kiểu event của PinChanged theo enum SerialPinChange của System.IO.Port.
-            </summary>
-        </member>
-        <member name="T:SerialPortLibrary.SerialErrorReceivedEventArgs">
-            <summary>
-            EventArgs for ErrorReceived.
-            </summary>
-        </member>
-        <member name="M:SerialPortLibrary.SerialErrorReceivedEventArgs.#ctor(System.IO.Ports.SerialError)">
-            <summary>
-            Hàm khởi tạo
-            </summary>
-            <param name="eventType"></param>
-        </member>
-        <member name="P:SerialPortLibrary.SerialErrorReceivedEventArgs.EventType">
-            <summary>
-            Kiểu event của ErrorReceived theo enum SerialError của System.IO.Port.
-            </summary>
-        </member>
-        <member name="T:SerialPortLibrary.SerialDataReceivedEventArgs">
-            <summary>
-            EventArgs for DataReceived.
-            </summary>
-        </member>
-        <member name="M:SerialPortLibrary.SerialDataReceivedEventArgs.#ctor(System.IO.Ports.SerialData)">
-            <summary>
-            Hàm khởi tạo
-            </summary>
-            <param name="eventType"></param>
-        </member>
-        <member name="P:SerialPortLibrary.SerialDataReceivedEventArgs.EventType">
-            <summary>
-            Kiểu event của ErrorReceived theo enum SerialData của System.IO.Port.
             </summary>
         </member>
     </members>

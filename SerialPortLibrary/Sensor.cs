@@ -6,13 +6,18 @@
     public class Sensor : ISerialPortLb
     {
         readonly SerialPortLb _port;
-        public Sensor(ISerialPortLb iSerialPortLb ) 
+
+        public Sensor(ISerialPortLb iSerialPortLb)
         {
             _port = (SerialPortLb?)iSerialPortLb;
         }
+
         public Action<string> Message { get; set; }
+
         public event EventHandler<PhChangedHandlerEventArgs> PhChanged;
+
         public event EventHandler<TempChangedHandlerEventArgs> TempChanged;
+
         public async Task<int> ReadAsync()
         {
             return await SerialPortLb.ReadAsync(() =>
@@ -20,7 +25,7 @@
                 List<string> a = new();
                 for (int i = 0; i < 7; i++)
                 {
-                    var m = _port.ReadChar().ToString("X");
+                    var m = _port.Port.ReadChar().ToString("X");
                     a.Add(m);
                     if (a.Count == 7)
                     {
@@ -41,6 +46,7 @@
                 return 0;
             });
         }
+
         /// <summary>
         /// Đọc dữ liệu từ cổng kết nối và xử lý đưa ra kết quả tương ứng
         /// </summary>
@@ -49,11 +55,12 @@
         {
             return await SerialPortLb.ReadAsync(() =>
             {
-                int a=_port.Read(buffer, 0, buffer.Length);
+                int a = _port.Port.Read(buffer, 0, buffer.Length);
                 Message?.Invoke($"Số byte đọc được là: {a}");
-                return 0;                
+                return 0;
             });
         }
+
         /// <summary>
         /// Ghi/Gửi dữ liệu và lệnh vào cổng kết nối 
         /// </summary>
@@ -61,40 +68,45 @@
         {
             await SerialPortLb.WriteAsync(() =>
             {
-                _port.Write(buffer, 0, buffer.Length);
+                _port.Port.Write(buffer, 0, buffer.Length);
             });
         }
+
         /// <summary>
         /// Khởi chạy các phương thức tổng thể trong kết nối, đây là một phương thức nhanh giúp rút ngắn thời gian kết nối đọc ghi cổng
         /// không nên được sử dụng thường xuyên, chỉ sử dụng trong trường hợp phù hợp
         /// </summary>
         public void Run(byte[] a, byte[] b)
         {
-            _port.Open();
+            _port.Port.Open();
             Task.WaitAll(WriteAsync(a), ReadAsync(b));
-            _port.Close();
+            _port.Port.Close();
+
         }
+
         /// <summary>
         /// Khởi chạy các phương thức tổng thể trong kết nối, đây là một phương thức nhanh giúp rút ngắn thời gian kết nối đọc ghi cổng
         /// không nên được sử dụng thường xuyên, chỉ sử dụng trong trường hợp phù hợp
         /// </summary>
         public void Run(byte[] a)
         {
-            _port.Open();
+            _port.Port.Open();
             Task.WaitAll(WriteAsync(a), ReadAsync());
-            _port.Close();
+            _port.Port.Close();
         }
+
         private void OnPhChanged(int ph)
         {
             PhChanged?.Invoke(this, new PhChangedHandlerEventArgs(ph));
         }
+
         private void OnTemChanged(float tem)
         {
             TempChanged?.Invoke(this, new TempChangedHandlerEventArgs(tem));
         }
 
-
     }
+
     /// <summary>
     /// lớp xử lý sự kiện lỗi cổng
     /// </summary>
@@ -106,6 +118,7 @@
             Message = message;
         }
     }
+
     /// <summary>
     /// lớp xử lý sự kiện thay đổi độ PH
     /// </summary>
@@ -117,6 +130,7 @@
             PH = ph;
         }
     }
+
     /// <summary>
     /// lớp xử lý sự kiện thay đối nhiệt độ
     /// </summary>
@@ -128,6 +142,6 @@
             Tem = tem;
         }
     }
-   
+
 
 }

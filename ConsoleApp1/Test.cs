@@ -8,7 +8,7 @@ namespace Test;
         public static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            SerialConfig serialConfig = new() { PortName = "COM3" };
+            SerialConfig serialConfig = new("COM3");
             byte[] a = { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01, 0x84, 0x0A };
             byte[] b = new byte[10];
             DataSend dataSend = new(a);
