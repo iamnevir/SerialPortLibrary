@@ -4,7 +4,7 @@ namespace SerialPortLibrary;
 
 public sealed class ConfigManager<T> where T : class, new()
 {
-    readonly string name = $"{nameof(T).ToString().ToLower()}.Json";
+    readonly string name = $"{typeof(T).ToString().ToLower()}.Json";
 
     private static readonly ConfigManager<T> _instance = new();
 
@@ -12,7 +12,7 @@ public sealed class ConfigManager<T> where T : class, new()
     {
         get
         {
-            if (File.Exists(nameof(name)))
+            if (File.Exists(_instance.name))
                 _instance.Load();
             else
                 _instance.Create();
