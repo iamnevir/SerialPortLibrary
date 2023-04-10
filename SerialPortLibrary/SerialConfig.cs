@@ -7,7 +7,8 @@ namespace SerialPortLibrary;
 /// </summary>
 public class SerialConfig
 {
-    private int dataBits = 8;
+    private int _dataBits = 8;
+    public SerialConfig() { }
 
     public SerialConfig(string portName, int baudRate = 4800, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)
     {
@@ -21,7 +22,7 @@ public class SerialConfig
     /// <summary>
     /// Tên cổng truyền vào
     /// </summary>
-    public string PortName { get; set; } = "COM2";
+    public string PortName { get; set; } = "COM3";
 
     /// <summary>
     /// Tốc độ truyền
@@ -48,11 +49,11 @@ public class SerialConfig
     /// </summary>
     public int DataBits
     {
-        get => dataBits; set
+        get => _dataBits; set
         {
-            if (dataBits >= 5 && dataBits <= 8)
+            if (_dataBits >= 5 && _dataBits <= 8)
             {
-                dataBits = value;
+                _dataBits = value;
             }
 
         }

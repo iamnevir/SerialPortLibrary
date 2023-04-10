@@ -144,7 +144,6 @@ public class SerialPortLb : ISerialPortLb
     /// <summary>
     /// Generic bất đồng bộ cho các phương thức ghi dữ liệu, truyền vào một delegate kiểu Action với một tham số truyền vào và không trả về kết quả.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     /// <param name="write"></param>
     /// <returns></returns>
     public static async Task WriteAsync(Action write)
