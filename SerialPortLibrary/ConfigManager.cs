@@ -24,7 +24,7 @@ public sealed class ConfigManager<T> where T : class, new()
 
     public void Load()
     {
-        Config = new T();
+        Config = new();
         using var stream = File.OpenRead(name);
         var reader = new StreamReader(stream);
         var json = reader.ReadToEnd();
@@ -33,14 +33,14 @@ public sealed class ConfigManager<T> where T : class, new()
 
     public void Save()
     {
-        Config = new T();
+        Config = new();
         using var stream = File.OpenWrite(name);
         JsonSerializer.Serialize(stream, Config, typeof(T));
     }
 
     public void Create()
     {
-        Config = new T();
+        Config = new();
         using FileStream createFile = File.Create(name);
         JsonSerializer.Serialize(createFile, Config, typeof(T));
     }
