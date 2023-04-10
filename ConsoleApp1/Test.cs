@@ -24,10 +24,10 @@ public class Test
             string text = Console.ReadLine();
             switch (text)
             {
-                case "read":
+                case "read1":
                     sensor.Run(a, b);
                     break;
-                case "readph":
+                case "read":
                     sensor.Run(a);
                     break;
             }
